@@ -1,6 +1,8 @@
 import "dotenv/config";
 import express, { type Request, type Response } from "express";
 import cors from "cors";
+import https from "https";
+import fs from "fs";
 import { router as serviceRouter } from "./routes/servico.route.js";
 import { router as usersRouter } from "./routes/users.route.js";
 import { router as orcamentoRouter } from "./routes/orcamento.route.js";
@@ -21,7 +23,7 @@ app.use(express.json()); // para interpretar o corpo das requisições como JSON
 
 // liberta o front-end de aceder ao back-end
 app.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000", "https://servidor-local-center-backend2.onrender.com"],
     credentials: true,
     allowedHeaders: ["Content-Type", "authorization"],
 }));
@@ -66,7 +68,12 @@ app.use("/graphql", expressMiddleware(graphqlServer, {
     }),
 }))
 
-// inicia o servidor na porta 8080
-app.listen(8080, () => {
-    console.log("Servidor rodando em http://localhost:8080");
+// inicia o servidor na porta 8080 com SSL
+const sslOptions = {
+    key: fs.readFileSync('./cert/server.key'),
+    cert: fs.readFileSync('./cert/server.cert')
+};
+
+https.createServer(sslOptions, app).listen(8080, () => {
+    console.log("Servidor rodando em https://localhost:8080");
 });
