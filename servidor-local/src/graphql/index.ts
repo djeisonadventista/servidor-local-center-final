@@ -1,6 +1,6 @@
 import { typeDefs } from "./typedefs/typedefs.js";
 import { UsersResolver } from "./resolvers/users.resolver.js";
-import { ServicoResolver } from "./resolvers/servico.resolver.js";
+import { ServiceResolver } from "./resolvers/service.resolver.js";
 import { prestacaoServicoResolver } from "./resolvers/prestacao-servico.resolver.js";
 import { PrestadorResolver } from "./resolvers/prestador.resolver.js";
 import { OrcamentoResolver } from "./resolvers/orcamento.resolver.js";
@@ -12,7 +12,7 @@ import { PropostaResolver } from "./resolvers/proposta.resolver.js";
 export const resolvers = {
     Query: {
         ...UsersResolver.Query,
-        ...ServicoResolver.Query,
+        ...ServiceResolver.Query,
         ...PropostaResolver.Query,
         ...PrestadorResolver.Query,
         ...prestacaoServicoResolver.Query,
@@ -22,7 +22,7 @@ export const resolvers = {
     },
     Mutation: {
         ...UsersResolver.Mutation,
-        ...ServicoResolver.Mutation,
+        ...ServiceResolver.Mutation,
         ...PropostaResolver.Mutation,
         ...PrestadorResolver.Mutation,
         ...prestacaoServicoResolver.Mutation,

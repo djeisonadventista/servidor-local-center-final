@@ -11,7 +11,7 @@ export const ServiceModel = {
         newService.nome,
         newService.descricao,
         newService.categoria,
-        newService.enabled_at ?? true,
+        newService.enabled ?? true,
         new Date(),
         new Date(),
       ];
@@ -24,15 +24,15 @@ export const ServiceModel = {
     }
   },
 
- async getAll(): Promise<ServiceDBType[] | null> {
+  async getAll(): Promise<ServiceDBType[] | null> {
     try {
-        const result = await db.query<ServiceDBType>(`SELECT * FROM tbl_servicos`);
-        return result.rows.length > 0 ? result.rows : null;
+      const result = await db.query<ServiceDBType>(`SELECT * FROM tbl_servicos`);
+      return result.rows.length > 0 ? result.rows : null;
     } catch (error) {
-        console.log(error);
-        return null;
+      console.log(error);
+      return null;
     }
-},
+  },
 
   async get(id: string): Promise<ServiceDBType | null> {
     try {
@@ -60,7 +60,7 @@ export const ServiceModel = {
         servicoAtualizado.nome,
         servicoAtualizado.descricao,
         servicoAtualizado.categoria,
-        servicoAtualizado.enabled_at,
+        servicoAtualizado.enabled,
         new Date(),
         id,
       ];

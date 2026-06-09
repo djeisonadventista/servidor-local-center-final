@@ -113,7 +113,7 @@ export interface ServiceDBType {
     nome: string;
     descricao: string;
     categoria: string;
-    enabled_at: boolean;
+    enabled: boolean;
     created_at: string;
     updated_at: string;
 }

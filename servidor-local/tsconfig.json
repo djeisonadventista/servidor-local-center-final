@@ -8,13 +8,9 @@
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
     "target": "esnext",
-    "types": [
-      "node"
-    ],
+    "types": ["node"],
     // For nodejs:
-    "lib": [
-      "esnext"
-    ],
+    "lib": ["esnext"],
     // "types": ["node"],
     // and npm install -D @types/node
     // Other Outputs
@@ -38,35 +34,8 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
-  "include": [
-    "src/**/*"
-, "../_trash/prestador.controller.ts", "../_trash/prestacao_servico.model.ts", "../_trash/prestacao.servico.model.ts", "../_trash/prestacao_servic.router.ts", "../_trash/user.controller.ts", "../_trash/budget.resolver.ts", "../_trash/category.resolver.ts", "../_trash/company.resolver.ts"  ],
-  "exclude": [
-    "node_modules",
-    "old_code",
-    "tests",
-    "vitest.config.ts",
-    "src/controllers/servico.controllers.ts",
-    "../_trash/user.controller.ts",
-    "../_trash/budget.resolver.ts",
-    "../_trash/category.resolver.ts",
-    "../_trash/company.resolver.ts",
-    "src/graphql/resolvers/orcamento.resolvers.ts",
-    "src/graphql/resolvers/prestacao.resolver.ts",
-    "src/graphql/resolvers/proposal.resolver.ts",
-    "src/graphql/resolvers/provider.resolver.ts",
-    "src/graphql/resolvers/service-prov.resolver.ts",
-    "src/graphql/resolvers/service.resolver.ts",
-    "src/graphql/resolvers/servico.resoltver.ts",
-    "src/graphql/resolvers/user.resolvers.ts",
-    "src/models/orcamentos.model.ts",
-    "../_trash/prestacao_servico.model.ts",
-    "../_trash/prestacao_servic.router.ts",
-    "src/sevico.ts",
-    "src/tempCodeRunnerFile.ts",
-    "src/exenplos.ts",
-    "src/index copy.ts"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "old_code", "tests", "_trash/**/*"]
 }

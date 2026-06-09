@@ -1,4 +1,4 @@
-import { isOwner } from "../security/auth.middelware.js";
+import { isOwner } from "../security/auth.middleware.js";
 import { jest, describe, beforeEach, it, expect } from "@jest/globals";
 
 

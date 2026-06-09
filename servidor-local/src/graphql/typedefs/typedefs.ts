@@ -131,12 +131,13 @@ export const typeDefs = gql`
         getAllUsers: [Utilizador]
         getUserById(id: ID!): Utilizador
 
-        getAllService: [Service]
+        getAllServices: [Service]
         getServiceById(id: ID!): Service
 
         getAllProposta: [Proposta]
         getPropostaById(id: ID!): Proposta
 
+        getAllPrestadores: [Prestador]
         getAllPrestador: [Prestador]
         getPrestadorById(id: ID!): Prestador
 
