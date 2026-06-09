@@ -40,13 +40,12 @@ components:
           type: boolean
           example: true
         enabled:
->>>>>>> refs/remotes/origin/dev
           type: boolean
           example: true
-        enable: 
+        enable:
           type: boolean
           example: true
-        created_at: 
+        created_at:
           type: string
           example: "2020-09-12T00:00:00.000Z"
         updated_at:
@@ -105,5 +104,4 @@ components:
           example: false
         data:
           type: object
-          properties:
-            null
+          properties: null
