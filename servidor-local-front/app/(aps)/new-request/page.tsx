@@ -1,3 +1,4 @@
+"use client"
 import dynamic from 'next/dynamic'
 
 // Carrega o Header apenas no navegador, ignorando o teste de build do servidor
