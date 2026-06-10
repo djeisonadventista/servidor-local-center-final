@@ -1,18 +1,9 @@
-"use client"; 
+"use client";
 
-import dynamic from 'next/dynamic';
+export const dynamic = "force-dynamic"; 
 
-
-const HeaderSection = dynamic(
-    () => import("@/components/request/header-section").then(mod => mod.HeaderSection),
-    { ssr: false }
-);
-
-
-const RequestSection = dynamic(
-    () => import("@/components/request/request-section").then(mod => mod.RequestSection),
-    { ssr: false }
-);
+import { HeaderSection } from "@/components/request/header-section"
+import { RequestSection } from "@/components/request/request-section"
 
 const Page = () => {
     return (
@@ -20,7 +11,7 @@ const Page = () => {
             <HeaderSection />
             <RequestSection />
         </div>
-    );
-};
+    )
+}
 
-export default Page;
+export default Page
