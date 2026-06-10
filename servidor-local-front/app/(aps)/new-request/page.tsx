@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { HeaderSection } from "@/components/request/header-section"
 import { RequestSection } from "@/components/request/request-section"
 
