@@ -1,7 +1,16 @@
-export const dynamic = "force-dynamic";
+import dynamic from 'next/dynamic'
 
-import { HeaderSection } from "@/components/request/header-section"
-import { RequestSection } from "@/components/request/request-section"
+// Carrega o Header apenas no navegador, ignorando o teste de build do servidor
+const HeaderSection = dynamic(
+    () => import("@/components/request/header-section").then(mod => mod.HeaderSection),
+    { ssr: false }
+)
+
+// Carrega a Section apenas no navegador, ignorando o teste de build do servidor
+const RequestSection = dynamic(
+    () => import("@/components/request/request-section").then(mod => mod.RequestSection),
+    { ssr: false }
+)
 
 const Page = () => {
     return (
