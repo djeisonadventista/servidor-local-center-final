@@ -31,6 +31,7 @@
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "tag": "^0.4.17",
+    "tsx": "^4.21.0",
     "uuid": "^13.0.0"
   },
   "devDependencies": {
@@ -48,7 +49,7 @@
     "supertest": "^6.3.3",
     "ts-jest": "^29.4.9",
     "ts-node": "^10.9.2",
-    "tsx": "^4.21.0",
+
     "typescript": "^5.9.3"
   }
 }

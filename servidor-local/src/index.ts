@@ -16,7 +16,6 @@ import swaggerUi from "swagger-ui-express"
 import { ApolloServer } from "@apollo/server";
 import { resolvers, typeDefs } from "./graphql/index.js";
 import { expressMiddleware } from "@as-integrations/express5";
-import { initDatabase } from "./lib/init-db.js";
 
 const app = express();
 
@@ -24,15 +23,11 @@ app.use(express.json()); // para interpretar o corpo das requisições como JSON
 
 // liberta o front-end de aceder ao back-end
 app.use(cors({
-    origin: ["http://localhost:3000",
-        "https://servidor-local-center-backend2.onrender.com",
-        "https://dev-servidor-local-center-final.vercel.app",
-        "https://servidor-local-center-final-pied.vercel.app"],
+    origin: ["http://localhost:3000", "https://servidor-local-center-backend2.onrender.com", "https://servidor-local-front-ts.vercel.app", "https://servidor-local-center-three.vercel.app"],
     credentials: true,
     allowedHeaders: ["Content-Type", "authorization"],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
 }));
-
 
 // rota inicial do express
 app.get("/", (req: Request, res: Response) => {
@@ -73,21 +68,20 @@ app.use("/graphql", expressMiddleware(graphqlServer, {
     }),
 }))
 
-await initDatabase();
-const Port = process.env.PORT ?? 8080;
-// inicia o servidor na porta 8080 com SSL
-if (process.env.NODE_ENV === "development") {
+const PORT = process.env.PORT ?? 8080;
 
+if (process.env.NODE_ENV === "development") {
+    // inicia o servidor na porta 8080 com SSL
     const sslOptions = {
         key: fs.readFileSync('./cert/server.key'),
         cert: fs.readFileSync('./cert/server.cert')
     };
 
-    https.createServer(sslOptions, app).listen(Port, () => {
-        console.log(`Servidor rodando em https://localhost:${Port}`);
+    https.createServer(sslOptions, app).listen(PORT, () => {
+        console.log(`Servidor rodando em https://localhost:${PORT}`);
     });
 } else {
-    app.listen(Port, () => {
-        console.log(`Servidor rodando em http://localhost:${Port}`);
+    app.listen(PORT, () => {
+        console.log(`Servidor rodando em http://localhost:${PORT}`);
     });
 }
