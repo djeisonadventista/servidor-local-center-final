@@ -27,7 +27,6 @@ app.use(cors({
     origin: ["http://localhost:3000",
         "https://servidor-local-center-backend2.onrender.com",
         "https://dev-servidor-local-center-final.vercel.app",
-        "https://dev-servidor-local-center-final.vercel.app/",
         "https://servidor-local-center-final-pied.vercel.app"],
     credentials: true,
     allowedHeaders: ["Content-Type", "authorization"],
