@@ -88,7 +88,7 @@ export const RequestSection = () => {
         
 
             const orcamentoResponse = await fetch(
-                "http://localhost:8080/orcamento/create",
+                `${process.env.NEXT_PUBLIC_API_URL}/orcamento/create`,
                 {
                     method: "POST",
                     headers: {
@@ -124,7 +124,7 @@ export const RequestSection = () => {
             }
 
             const response = await fetch(
-                "http://localhost:8080/prestacao-servico/create",
+                `${process.env.NEXT_PUBLIC_API_URL}/prestacao-servico/create`,
                 {
                     method: "POST",
                     headers: {
