@@ -3,4 +3,4 @@ package-lock.json
 maincontext.ts
 .env
 .env.*
-
+dist
