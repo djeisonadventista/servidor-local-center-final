@@ -16,6 +16,7 @@ import swaggerUi from "swagger-ui-express"
 import { ApolloServer } from "@apollo/server";
 import { resolvers, typeDefs } from "./graphql/index.js";
 import { expressMiddleware } from "@as-integrations/express5";
+import { initDatabase } from "./lib/init-db.js";
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(cors({
     origin: ["http://localhost:3000", "https://servidor-local-center-backend2.onrender.com", "https://dev-servidor-local-center-final.vercel.app", "https://servidor-local-center-final-pied.vercel.app"],
     credentials: true,
     allowedHeaders: ["Content-Type", "authorization"],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
 }));
 
 
@@ -67,6 +69,8 @@ app.use("/graphql", expressMiddleware(graphqlServer, {
         DB_NAME: process.env.DB_NAME,
     }),
 }))
+
+await initDatabase();
 const Port = process.env.PORT ?? 8080;
 // inicia o servidor na porta 8080 com SSL
 if (process.env.NODE_ENV === "development") {
